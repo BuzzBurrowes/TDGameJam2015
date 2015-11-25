@@ -2,6 +2,70 @@
 <map version="1.0" orientation="orthogonal" renderorder="right-down" width="10" height="10" tilewidth="32" tileheight="32" nextobjectid="1">
  <tileset firstgid="1" name="Basic" tilewidth="32" tileheight="32" tilecount="48">
   <image source="../tilesets/ground_tiles.png" width="192" height="256"/>
+  <tile id="0">
+   <objectgroup draworder="index">
+    <object id="0" x="-1.75" y="-2" width="35.75" height="35.75"/>
+   </objectgroup>
+  </tile>
+  <tile id="1">
+   <objectgroup draworder="index">
+    <object id="0" x="-0.25" y="-1.25" width="33" height="33.75"/>
+    <object id="0" x="-1.5" y="-3.25" width="35.75" height="37"/>
+   </objectgroup>
+  </tile>
+  <tile id="2">
+   <objectgroup draworder="index">
+    <object id="0" x="-2" y="-2.75" width="35.5" height="36.5"/>
+   </objectgroup>
+  </tile>
+  <tile id="3">
+   <objectgroup draworder="index">
+    <object id="0" x="-1.25" y="-2.25" width="34.5" height="35.5"/>
+   </objectgroup>
+  </tile>
+  <tile id="4">
+   <objectgroup draworder="index">
+    <object id="0" x="-1.5" y="-2.25" width="35.25" height="35.75"/>
+   </objectgroup>
+  </tile>
+  <tile id="5">
+   <objectgroup draworder="index">
+    <object id="0" x="-1.25" y="-1.5" width="34.25" height="34.75"/>
+   </objectgroup>
+  </tile>
+  <tile id="6">
+   <objectgroup draworder="index">
+    <object id="0" x="-1.75" y="-1.75" width="35" height="34.75"/>
+   </objectgroup>
+  </tile>
+  <tile id="7">
+   <objectgroup draworder="index">
+    <object id="0" x="-1.75" y="-1.5" width="35.25" height="34.5"/>
+   </objectgroup>
+  </tile>
+  <tile id="8">
+   <objectgroup draworder="index">
+    <object id="0" x="-1.75" y="-1.75" width="35.5" height="34.25"/>
+   </objectgroup>
+  </tile>
+  <tile id="9">
+   <objectgroup draworder="index">
+    <object id="0" x="-2.5" y="-1.75" width="36.75" height="35.5"/>
+   </objectgroup>
+  </tile>
+  <tile id="10">
+   <objectgroup draworder="index">
+    <object id="0" x="-2" y="-2.5" width="36" height="36.75"/>
+   </objectgroup>
+  </tile>
+  <tile id="11">
+   <objectgroup draworder="index">
+    <object id="0" x="-3.25" y="-3.5" width="37" height="36.5"/>
+   </objectgroup>
+  </tile>
+ </tileset>
+ <tileset firstgid="49" name="collision" tilewidth="32" tileheight="32" tilecount="2">
+  <image source="../tilesets/collision.png" width="32" height="64"/>
  </tileset>
  <layer name="Tile Layer 1" width="10" height="10">
   <data encoding="base64" compression="zlib">

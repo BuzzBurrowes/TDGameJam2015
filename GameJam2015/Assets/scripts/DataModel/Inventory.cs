@@ -3,36 +3,67 @@ using System.Collections.Generic;
 
 public class Inventory
 {
-   public Dictionary<string, Item> mItems = new Dictionary<string, Item>();
+   public List<Item> mItems = new List<Item>();
 
-   public void ChangeItemCount(string name, int count)
+   public bool TryAddItem(string name, IDictionary<string, string> props)
    {
-      if(mItems.ContainsKey(name))
+      Type elementType = Type.GetType(name);
+      if (elementType != null)
       {
-         mItems[name].Count += count;
-         if(mItems[name].Count <= 0)
-            mItems.Remove(name);
-      }
-      else
-      {
-         //if(count > 0)
-            //Generate Item
-      }
+         Item item = Activator.CreateInstance(elementType) as Item;
+         if (item != null)
+         {
+            if (item.Stackable)
+            {
+               // search list for existing inventory of the same type and try to stack...
+               foreach(Item i in mItems)
+               {
+                  if (i.GetType() == elementType)
+                  {
+                     // can we stack here?
+                     if (i.Add(props))
+                        return true;
+                  }
+               }
+            }
+            // if we get here we can't stack, or all stacks are full...
+            if (!item.Init(name, props))
+               return false;
 
-      /*if(mItems.ContainsKey("material"))
+            mItems.Add(item);
+            return true;
+         }
+      }
+  
+      return false;
+   }
+
+   public void ConsumeItem(string name, int count)
+   {
+      for (int i = mItems.Count - 1; i > -1 && count > 0; i--)
       {
-         Material m = mItems["material"] as Material;
-         if(m!= null)
-             m.DoAThingOnlyMaterialCanDo();
-      }*/
+         if (mItems[i].Name == name)
+         {
+            if (mItems[i].Count > count)
+            {
+               mItems[i].Count -= count;
+               return;
+            }
+            count -= mItems[i].Count;
+            mItems.RemoveAt(i);
+         }
+      }
    }
 
    public int CheckItemCount(string name)
    {
-      if(mItems.ContainsKey(name))
-         return mItems[name].Count;
-      else
-         return 0;
+      int count = 0;
+      foreach (Item i in mItems)
+      {
+         if (i.Name == name)
+            count += i.Count;
+      }
+      return count;
    }
 
 }

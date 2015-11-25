@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public class ItemCollector : MonoBehaviour 
 {
+   Inventory mInventory = new Inventory();
+
    void Start() 
    {
 	
@@ -16,7 +18,6 @@ public class ItemCollector : MonoBehaviour
 
    public bool TryToCollectItem(string itemType, Dictionary<string, string> props)
    {
-      Debug.Log("Tried to collect item of type: " + itemType);
-      return true;
+      return mInventory.TryAddItem(itemType, props);
    }
 }

@@ -17,24 +17,39 @@ public class Item
       set { mCount = value; }
    }
 
-   private bool mStacks;
-   public bool Stacks
+   private bool mStackable;
+   public bool Stackable
    {
-      get {return mStacks;}
-      set {mStacks = value;}
+      get {return mStackable;}
+      set {mStackable = value;}
    }
 
-   public Item(string name, int count, bool stacks)
+   public Item(string name, int count, bool stackable)
    {
       mName = name;
       mCount = count;
-      mStacks = stacks;
+      mStackable = stackable;
    }
 
    public Item()
    {
       mName = "[unknown]";
       mCount = 0;
-      mStacks = false;
+      mStackable = false;
+   }
+
+   virtual public bool Add(IDictionary<string, string> props)
+   {
+      if (props.ContainsKey("count"))
+         mCount += int.Parse(props["count"]);
+      else
+         mCount++;
+      return true;
+   }
+
+   virtual public bool Init(string name, IDictionary<string, string> props)
+   {
+      mName = name;
+      return Add(props);
    }
 }

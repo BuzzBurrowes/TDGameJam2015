@@ -16,7 +16,7 @@ public class Blueprint : Item
       }
       foreach(BlueprintCondition condition in mConditions)
       {
-         inventory.ChangeItemCount(condition.Name, -condition.Count);
+         inventory.ConsumeItem(condition.Name, condition.Count);
       }
       return true;
    }

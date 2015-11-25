@@ -6,7 +6,7 @@ public class CollectableController : MonoBehaviour
 {
    public string ItemType;
    
-   public Dictionary<string, string> Props;
+   public Dictionary<string, string> Props = new Dictionary<string, string>();
 
    void Start() 
    {

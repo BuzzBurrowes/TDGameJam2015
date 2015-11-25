@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class World
 {
-   List<CollectableItem> mCollectibles = new List<CollectableItem>();
+   List<Item> mCollectibles = new List<Item>();
    
    public World()
    {

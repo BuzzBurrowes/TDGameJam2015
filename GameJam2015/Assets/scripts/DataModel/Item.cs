@@ -24,11 +24,18 @@ public class Item
       set {mStackable = value;}
    }
 
-   public Item(string name, int count, bool stackable)
+   private bool mConsumable;
+   public bool Consumable
+   {
+      get { return mConsumable; }
+      set { mConsumable = value; }
+   }
+   public Item(string name, int count, bool stackable, bool consumable)
    {
       mName = name;
       mCount = count;
       mStackable = stackable;
+      mConsumable = consumable;
    }
 
    public Item()
@@ -36,18 +43,24 @@ public class Item
       mName = "[unknown]";
       mCount = 0;
       mStackable = false;
+      mConsumable = true;
    }
 
-   virtual public bool Add(IDictionary<string, string> props)
+   public bool Add(IDictionary<string, string> props)
    {
       if (props.ContainsKey("count"))
          mCount += int.Parse(props["count"]);
       else
          mCount++;
+     
+      // give any subclass a stab at deciphering the props...
+      _Add(props);
       return true;
    }
 
-   virtual public bool Init(string name, IDictionary<string, string> props)
+   protected virtual bool _Add(IDictionary<string, string> props) { return true; }
+
+   public bool Init(string name, IDictionary<string, string> props)
    {
       mName = name;
       return Add(props);

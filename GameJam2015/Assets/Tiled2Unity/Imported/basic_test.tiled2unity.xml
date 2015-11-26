@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <!--Tiled2Unity generated xml data-->
 <!--Do not modify by hand-->
-<!--Last exported: 11/25/2015 7:09:54 PM-->
+<!--Last exported: 11/25/2015 7:14:53 PM-->
 <Tiled2Unity version="0.9.13.1">
   <AssignMaterial mesh="mesh_[00]_[00]" material="ground_tiles" sortingLayerName="" sortingOrder="0" />
   <Prefab name="basic_test" numTilesWide="10" numTilesHigh="10" tileWidth="32" tileHeight="32" exportScale="1" mapWidthInPixels="320" mapHeightInPixels="320">
@@ -20,6 +20,9 @@
       <GameObject name="Crate2" x="207" y="-150" rotation="0">
         <Property name="collectable" value="crate" />
         <Property name="count" value="5" />
+      </GameObject>
+      <GameObject name="Crate3" x="143" y="-190" rotation="0">
+        <Property name="collectable" value="crate" />
       </GameObject>
     </GameObject>
   </Prefab>

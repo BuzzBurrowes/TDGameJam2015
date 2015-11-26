@@ -12,10 +12,6 @@ class CustomImporterAddComponent : Tiled2Unity.ICustomTiledImporter
       // Simply add a component to our GameObject
       if (props.ContainsKey("collectable"))
       {
-         // Are we spawning an Appearing Block?
-         if (props["collectable"] != "crate")
-            return;
-
          // Load the prefab assest and Instantiate it
          string prefabPath = "Assets/prefabs/collectables/" + props["collectable"] + ".prefab";
          UnityEngine.Object spawn =

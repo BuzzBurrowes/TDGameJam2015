@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="10" height="10" tilewidth="32" tileheight="32" nextobjectid="18">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="10" height="10" tilewidth="32" tileheight="32" nextobjectid="19">
  <tileset firstgid="1" name="Basic" tilewidth="32" tileheight="32" tilecount="48">
   <image source="../tilesets/ground_tiles.png" width="192" height="256"/>
   <tile id="0">
@@ -72,6 +72,16 @@
  <tileset firstgid="49" name="collision" tilewidth="32" tileheight="32" tilecount="2">
   <image source="../tilesets/collision.png" width="32" height="64"/>
  </tileset>
+ <tileset firstgid="51" name="blueprint" tilewidth="32" tileheight="32" tilecount="1">
+  <image source="../images/blueprint.png" width="32" height="32"/>
+  <tile id="0">
+   <properties>
+    <property name="collectable" value="blueprint"/>
+    <property name="input" value="wood,3:cloth,2"/>
+    <property name="output" value="bed"/>
+   </properties>
+  </tile>
+ </tileset>
  <layer name="Tile Layer 1" width="10" height="10">
   <data encoding="base64" compression="zlib">
    eJwTYWBgECEScxPApJhBrFoRItQPZnXcaOoIhR8AdgMGww==
@@ -90,5 +100,6 @@
    </properties>
   </object>
   <object id="17" name="Crate3" gid="38" x="143" y="190" width="32" height="32"/>
+  <object id="18" name="Blueprint1" gid="51" x="105" y="255" width="32" height="32"/>
  </objectgroup>
 </map>

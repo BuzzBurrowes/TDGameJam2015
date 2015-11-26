@@ -14,7 +14,7 @@ public class BlueprintCondition
    {
       get { return Count; }
    }
-
+   
    public BlueprintCondition(string name, int count)
    {
       mName = name;

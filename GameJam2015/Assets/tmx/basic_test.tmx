@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="10" height="10" tilewidth="32" tileheight="32" nextobjectid="19">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="10" height="10" tilewidth="32" tileheight="32" nextobjectid="1">
  <tileset firstgid="1" name="Basic" tilewidth="32" tileheight="32" tilecount="48">
   <image source="../tilesets/ground_tiles.png" width="192" height="256"/>
   <tile id="0">
@@ -63,43 +63,18 @@
     <object id="0" x="-3.25" y="-3.5" width="37" height="36.5"/>
    </objectgroup>
   </tile>
-  <tile id="37">
-   <properties>
-    <property name="collectable" value="crate"/>
-   </properties>
-  </tile>
  </tileset>
  <tileset firstgid="49" name="collision" tilewidth="32" tileheight="32" tilecount="2">
   <image source="../tilesets/collision.png" width="32" height="64"/>
- </tileset>
- <tileset firstgid="51" name="blueprint" tilewidth="32" tileheight="32" tilecount="1">
-  <image source="../images/blueprint.png" width="32" height="32"/>
-  <tile id="0">
-   <properties>
-    <property name="collectable" value="blueprint"/>
-    <property name="input" value="wood,3:cloth,2"/>
-    <property name="output" value="bed"/>
-   </properties>
-  </tile>
  </tileset>
  <layer name="Tile Layer 1" width="10" height="10">
   <data encoding="base64" compression="zlib">
    eJwTYWBgECEScxPApJhBrFoRItQPZnXcaOoIhR8AdgMGww==
   </data>
  </layer>
- <objectgroup name="Object Layer 1">
-  <object id="7" name="Crate1" gid="44" x="206.667" y="260.667" width="32" height="32">
-   <properties>
-    <property name="collectable" value="crate"/>
-   </properties>
-  </object>
-  <object id="9" name="Crate2" gid="44" x="207" y="150" width="32" height="32">
-   <properties>
-    <property name="collectable" value="crate"/>
-    <property name="count" value="5"/>
-   </properties>
-  </object>
-  <object id="17" name="Crate3" gid="38" x="143" y="190" width="32" height="32"/>
-  <object id="18" name="Blueprint1" gid="51" x="105" y="255" width="32" height="32"/>
- </objectgroup>
+ <layer name="Tile Layer 2" width="10" height="10">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFgwkAAAGQAAE=
+  </data>
+ </layer>
 </map>

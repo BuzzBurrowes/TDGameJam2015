@@ -34,7 +34,6 @@ class CustomImporterAddComponent : Tiled2Unity.ICustomTiledImporter
             cc.ItemType = props["collectable"];
             foreach(string key in props.Keys)
                cc.Props[key] = props[key];
-            Debug.Log("");
          }
          else
          {

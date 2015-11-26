@@ -32,7 +32,9 @@ class CustomImporterAddComponent : Tiled2Unity.ICustomTiledImporter
 
             CollectableController cc = spawnInstance.GetComponent<CollectableController>();
             cc.ItemType = props["collectable"];
-            cc.Props = props as Dictionary<string,string>;
+            foreach(string key in props.Keys)
+               cc.Props[key] = props[key];
+            Debug.Log("");
          }
          else
          {

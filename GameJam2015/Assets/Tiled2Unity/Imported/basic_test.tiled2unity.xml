@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <!--Tiled2Unity generated xml data-->
 <!--Do not modify by hand-->
-<!--Last exported: 11/25/2015 6:46:14 PM-->
+<!--Last exported: 11/25/2015 7:43:51 PM-->
 <Tiled2Unity version="0.9.13.1">
   <AssignMaterial mesh="mesh_[00]_[00]" material="ground_tiles" sortingLayerName="" sortingOrder="0" />
   <Prefab name="basic_test" numTilesWide="10" numTilesHigh="10" tileWidth="32" tileHeight="32" exportScale="1" mapWidthInPixels="320" mapHeightInPixels="320">
@@ -16,6 +16,18 @@
     <GameObject name="Object Layer 1" x="0" y="0">
       <GameObject name="Crate1" x="206.66700744628906" y="-260.6669921875" rotation="0">
         <Property name="collectable" value="crate" />
+      </GameObject>
+      <GameObject name="Crate2" x="207" y="-150" rotation="0">
+        <Property name="collectable" value="crate" />
+        <Property name="count" value="5" />
+      </GameObject>
+      <GameObject name="Crate3" x="143" y="-190" rotation="0">
+        <Property name="collectable" value="crate" />
+      </GameObject>
+      <GameObject name="Blueprint1" x="105" y="-255" rotation="0">
+        <Property name="collectable" value="blueprint" />
+        <Property name="input" value="wood,3:cloth,2" />
+        <Property name="output" value="bed" />
       </GameObject>
     </GameObject>
   </Prefab>

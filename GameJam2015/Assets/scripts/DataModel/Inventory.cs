@@ -3,20 +3,30 @@ using System.Collections.Generic;
 
 public class Inventory
 {
-   public List<Item> mItems = new List<Item>();
+   public List<Item> mConsumableItems = new List<Item>();
+   public List<Item> mBlueprints = new List<Item>();
+   public List<Item> mKeyItems = new List<Item>();
 
    public bool TryAddItem(string name, IDictionary<string, string> props)
    {
       Type elementType = Type.GetType(name);
       if (elementType != null)
       {
+         // which list would this go on?
          Item item = Activator.CreateInstance(elementType) as Item;
          if (item != null)
          {
+            List<Item> itemList;
+            if (item.Consumable)
+               itemList = mConsumableItems;
+            else if (name == "blueprint")
+               itemList = mBlueprints;
+            else
+               itemList = mKeyItems;    
             if (item.Stackable)
             {
                // search list for existing inventory of the same type and try to stack...
-               foreach(Item i in mItems)
+               foreach(Item i in mConsumableItems)
                {
                   if (i.GetType() == elementType)
                   {
@@ -30,7 +40,7 @@ public class Inventory
             if (!item.Init(name, props))
                return false;
 
-            mItems.Add(item);
+            itemList.Add(item);
             return true;
          }
       }
@@ -40,17 +50,17 @@ public class Inventory
 
    public void ConsumeItem(string name, int count)
    {
-      for (int i = mItems.Count - 1; i > -1 && count > 0; i--)
+      for (int i = mConsumableItems.Count - 1; i > -1 && count > 0; i--)
       {
-         if (mItems[i].Name == name)
+         if (mConsumableItems[i].Name == name)
          {
-            if (mItems[i].Count > count)
+            if (mConsumableItems[i].Count > count)
             {
-               mItems[i].Count -= count;
+               mConsumableItems[i].Count -= count;
                return;
             }
-            count -= mItems[i].Count;
-            mItems.RemoveAt(i);
+            count -= mConsumableItems[i].Count;
+            mConsumableItems.RemoveAt(i);
          }
       }
    }
@@ -58,7 +68,7 @@ public class Inventory
    public int CheckItemCount(string name)
    {
       int count = 0;
-      foreach (Item i in mItems)
+      foreach (Item i in mConsumableItems)
       {
          if (i.Name == name)
             count += i.Count;

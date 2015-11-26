@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="200" height="200" tilewidth="32" tileheight="32" nextobjectid="1">
+ <tileset firstgid="1" name="Wiz" tilewidth="32" tileheight="32" tilecount="1">
+  <image source="../character/wizard.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="2" name="Liz" tilewidth="32" tileheight="32" tilecount="1">
+  <image source="../character/Lizardman.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="3" name="ground_tiles" tilewidth="32" tileheight="32" tilecount="48">
+  <image source="../tilesets/ground_tiles.png" width="192" height="256"/>
+ </tileset>
+ <tileset firstgid="51" name="Bricks" tilewidth="32" tileheight="32" tilecount="16">
+  <image source="../tilesets/Brick tilemap.png" width="128" height="128"/>
+ </tileset>
+ <layer name="Terrain" width="200" height="200">
+  <data encoding="base64" compression="zlib">
+   eJzt2kEOgjAQhlHu4T24/9Fca+gYWug45S3eUovJ/4U0cd+2bQcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAODDK5D9bJAhakIrPFlPGxrhCUba0Air6t27TljdyPvAu4SV3bFnjbCCuzesEaqatV2NUM3szWqEKjLuBu4jVJG1U31QgT6gTR9wLHuj2edDJHuf2edDJHuf2edDJHuf2efDL+7n0KYPaNMHtPl/CbTpA2Iz96oNKpqxW21Q2Z371QYr+N7x6Jav/j7IdrTpM9se/Tz8u2jjvbJ/E1xJG3COFgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOPIGKxTY5g==
+  </data>
+ </layer>
+ <layer name="Start Room" width="200" height="200">
+  <data encoding="base64" compression="zlib">
+   eJzt3DEKQjEQBNB/JxXx/heTFIMQSb2DvgfTTzHbpMh1AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/+oucLT2cRvKvtOWHhBrD8+h7Lts6QGx9vAYyr7Llh4QTbts6QHRtMuWHhBNu2zpAdG0y5YeEJO73N9ZW3pATN7H/s7a0gNi8j5aA+E+3Adn7sN9cOY+3AdnTe+qLT0gmnbZ0gOiaZctPSCadtnSA6Jply09IJp22dIDommXLT0g9m0IfEz9idAciJd8BQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD4LW+MJFWU
+  </data>
+ </layer>
+ <layer name="Archway" width="200" height="200">
+  <data encoding="base64" compression="zlib">
+   eJzt1UEKAjEMBdDcSTft/Q/mSpCYTmdAUdr3oIsMLczifxIBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPyj+wcPrEY/YEw/YEw/YCxn/FZ8q051D1ZT5X7WkdEdWM0s+9Vd/WAXOeMtzvWjFW9hNT3eM36mH5He9a//KfxG7keL4360wTtY0esOeTrqR57tDlaXs9+j7kdPs93BDkZ9mM12B7vI+c/Zz7PdwU6u7gK7AwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANjNA6PTKVc=
+  </data>
+ </layer>
+ <layer name="Characters" width="200" height="200">
+  <data encoding="base64" compression="zlib">
+   eJzt07ENADAIAzDK/0ezo0rsYC9RsicCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYJZDh+uyJVz2PptvAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADsUQHAAAw=
+  </data>
+ </layer>
+</map>

@@ -12,7 +12,7 @@ public class BlueprintCondition
    private int mCount;
    public int Count
    {
-      get { return Count; }
+      get { return Count;  }
    }
    
    public BlueprintCondition(string name, int count)

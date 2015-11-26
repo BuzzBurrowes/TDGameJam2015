@@ -21,7 +21,7 @@ public class BlueprintCondition
       mCount = count;
    }
 
-   public bool Check(Inventory inventory)
+   public bool Check(ItemInventory inventory)
    {
       return (inventory.CheckItemCount(mName) >= mCount);
    }

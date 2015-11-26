@@ -4,9 +4,18 @@ using System.Collections.Generic;
 
 public class World
 {
-   List<Item> mCollectibles = new List<Item>();
-   
-   public World()
+   protected World()
    {
-   }   
+   }
+
+   static World gWorld = null;
+   static World Instance
+   {
+      get
+      {
+         if (gWorld == null)
+            gWorld = new World();
+         return gWorld;
+      }
+   }
 }

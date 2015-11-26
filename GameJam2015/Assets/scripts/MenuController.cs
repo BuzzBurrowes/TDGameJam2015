@@ -12,7 +12,6 @@ public class MenuController : MonoBehaviour
 	
    void Update()
    {
-      Debug.Log(Input.GetAxis("InventoryMenu"));
       if (Input.GetButtonDown("InventoryMenu"))
       {
          if (!InventoryMenu.gameObject.activeInHierarchy)

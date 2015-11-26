@@ -47,7 +47,7 @@ public class blueprint : Item
    string mOutput;
    public List<BlueprintCondition> mConditions = new List<BlueprintCondition>();
 
-   public bool AttemptCraft(Inventory inventory)
+   public bool AttemptCraft(ItemInventory inventory)
    {
       foreach (BlueprintCondition condition in mConditions)
       {

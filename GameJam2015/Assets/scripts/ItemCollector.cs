@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class ItemCollector : MonoBehaviour 
 {
-   Inventory mInventory = new Inventory();
+   ItemInventory mInventory = new ItemInventory();
 
    void Start() 
    {

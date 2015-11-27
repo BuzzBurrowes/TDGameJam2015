@@ -4,5 +4,5 @@ using System.Collections.Generic;
 
 public interface ItemCollector 
 {
-   bool TryToCollectItem(string itemType, Dictionary<string, string> props);
+   bool TryToCollectItem(Item item);
 }

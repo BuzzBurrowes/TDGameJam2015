@@ -24,45 +24,71 @@ public class Item
       set {mStackable = value;}
    }
 
-   private bool mConsumable;
-   public bool Consumable
+   private bool mOneOnly;
+   public bool OneOnly
    {
-      get { return mConsumable; }
-      set { mConsumable = value; }
+      get { return mOneOnly; }
+      set { mOneOnly = value; }
    }
-   public Item(string name, int count, bool stackable, bool consumable)
+
+   public enum ItemClasses
+   {
+      unknown,
+      consumable,
+      weapon,
+      blueprint,
+      key
+   }
+
+   private ItemClasses mClass;
+   public ItemClasses Class
+   {
+      get { return mClass; }
+      set { mClass = value; }
+   }
+
+   /*
+   public Item(string name, int count, bool stackable, ItemClasses itemClass)
    {
       mName = name;
       mCount = count;
       mStackable = stackable;
-      mConsumable = consumable;
+      mClass = itemClass;
    }
+   */
 
    public Item()
    {
       mName = "[unknown]";
       mCount = 0;
       mStackable = false;
-      mConsumable = true;
+      mClass = ItemClasses.unknown;
+      mOneOnly = false;
    }
 
-   public bool Add(IDictionary<string, string> props)
+   public bool Add(Item i)
    {
-      if (props.ContainsKey("count"))
-         mCount += int.Parse(props["count"]);
-      else
-         mCount++;
+      mCount += i.Count;
      
       // give any subclass a stab at deciphering the props...
-      _Add(props);
+      _Add(i);
+
       return true;
    }
 
-   protected virtual bool _Add(IDictionary<string, string> props) { return true; }
+   protected virtual void _Add(Item item) { }
 
-   public bool Init(string name, IDictionary<string, string> props)
+   public bool Setup(IDictionary<string, string> props)
    {
-      mName = name;
-      return Add(props);
+      if (props.ContainsKey("count"))
+         mCount = int.Parse(props["count"]);
+      return _Setup(props);
+   }
+
+   // override in subclasses to populate class specific properties from 
+   // props...
+   protected virtual bool _Setup(IDictionary<string, string> props)
+   {
+      return true;
    }
 }

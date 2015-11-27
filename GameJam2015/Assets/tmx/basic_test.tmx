@@ -65,7 +65,12 @@
   </tile>
   <tile id="37">
    <properties>
-    <property name="collectable" value="crate"/>
+    <property name="itemtype" value="crate"/>
+   </properties>
+  </tile>
+  <tile id="43">
+   <properties>
+    <property name="itemtype" value="crate"/>
    </properties>
   </tile>
  </tileset>
@@ -76,9 +81,7 @@
   <image source="../images/blueprint.png" width="32" height="32"/>
   <tile id="0">
    <properties>
-    <property name="collectable" value="blueprint"/>
-    <property name="input" value="wood,3:cloth,2"/>
-    <property name="output" value="bed"/>
+    <property name="itemtype" value="blueprint"/>
    </properties>
   </tile>
  </tileset>
@@ -88,22 +91,22 @@
   </data>
  </layer>
  <objectgroup name="Object Layer 1">
-  <object id="7" name="Crate1" gid="44" x="206.667" y="260.667" width="32" height="32">
-   <properties>
-    <property name="collectable" value="crate"/>
-   </properties>
-  </object>
+  <object id="7" name="Crate1" gid="44" x="206.667" y="260.667" width="32" height="32"/>
   <object id="9" name="Crate2" gid="44" x="207" y="150" width="32" height="32">
    <properties>
-    <property name="collectable" value="crate"/>
     <property name="count" value="5"/>
    </properties>
   </object>
   <object id="17" name="Crate3" gid="38" x="143" y="190" width="32" height="32"/>
-  <object id="18" name="Blueprint1" gid="51" x="105" y="255" width="32" height="32"/>
-  <object id="21" name="Spawner1" gid="37" x="62" y="110" width="32" height="32">
+  <object id="18" name="Blueprint1" gid="51" x="105" y="255" width="32" height="32">
    <properties>
-    <property name="spawner" value="true"/>
+    <property name="input" value="wood,3:cloth,2"/>
+    <property name="output" value="bed"/>
+   </properties>
+  </object>
+  <object id="21" name="Spawner1" gid="37" x="61" y="99" width="32" height="32">
+   <properties>
+    <property name="type" value="spawner"/>
    </properties>
   </object>
  </objectgroup>

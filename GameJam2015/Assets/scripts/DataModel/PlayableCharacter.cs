@@ -10,8 +10,8 @@ public class PlayableCharacter
       set { mInventory = value; }
    }
 
-   public bool TryToCollectItem(string itemType, Dictionary<string, string> props)
+   public bool TryToCollectItem(Item item)
    {
-      return mInventory.TryAddItem(itemType, props);
+      return mInventory.TryAddItem(item);
    }
 }

@@ -10,7 +10,7 @@ class SpawnerImporter : Tiled2Unity.ICustomTiledImporter
        IDictionary<string, string> props)
    {
       // Simply add a component to our GameObject
-      if (props.ContainsKey("spawner") && props["spawner"] == "true")
+      if (props.ContainsKey("type") && props["type"] == "spawner")
       {
          string prefabPath = "Assets/prefabs/playerspawner.prefab";
          UnityEngine.Object spawn =

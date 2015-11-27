@@ -3,64 +3,68 @@ using System.Collections.Generic;
 
 public class ItemInventory
 {
-   public List<Item> mConsumableItems = new List<Item>();
-   public List<Item> mBlueprints = new List<Item>();
-   public List<Item> mKeyItems = new List<Item>();
+   public List<Item> mWeapons     = new List<Item>();
+   public List<Item> mConsumables = new List<Item>();
+   public List<Item> mMaterials   = new List<Item>();
+   public List<Item> mBlueprints  = new List<Item>();
+   public List<Item> mKeyItems    = new List<Item>();
 
-   public bool TryAddItem(string name, IDictionary<string, string> props)
+   public bool TryAddItem(Item item)
    {
-      Type elementType = Type.GetType(name);
-      if (elementType != null)
+      List<Item> itemList;
+      switch (item.Class)
       {
-         // which list would this go on?
-         Item item = Activator.CreateInstance(elementType) as Item;
-         if (item != null)
-         {
-            List<Item> itemList;
-            if (item.Consumable)
-               itemList = mConsumableItems;
-            else if (name == "blueprint")
-               itemList = mBlueprints;
-            else
-               itemList = mKeyItems;    
-            if (item.Stackable)
-            {
-               // search list for existing inventory of the same type and try to stack...
-               foreach(Item i in mConsumableItems)
-               {
-                  if (i.GetType() == elementType)
-                  {
-                     // can we stack here?
-                     if (i.Add(props))
-                        return true;
-                  }
-               }
-            }
-            // if we get here we can't stack, or all stacks are full...
-            if (!item.Init(name, props))
-               return false;
+         case Item.ItemClasses.consumable: itemList = mConsumables; break;
+         case Item.ItemClasses.blueprint:  itemList = mBlueprints;  break;
+         case Item.ItemClasses.key:        itemList = mKeyItems;    break;
+         case Item.ItemClasses.weapon:     itemList = mWeapons;     break;
+         default: throw new ArgumentException("Unrecognized item class!", item.Class.ToString());
+      }
 
-            itemList.Add(item);
-            return true;
+      if (item.Stackable)
+      {
+         // search list for existing inventory of the same type and try to stack...
+         foreach(Item i in itemList)
+         {
+            if (i.GetType() == item.GetType())
+            {
+               // can we stack here?
+               if (i.Add(item))
+                  return true;
+            }
          }
       }
-  
-      return false;
+      
+      if (item.OneOnly)
+      {
+         // search list for existing inventory of the same type and try to stack...
+         foreach (Item i in itemList)
+         {
+            if (i.GetType() == item.GetType())
+            {
+               return false;
+            }
+         }
+      }
+
+      // if we get here we can't stack, or all stacks are full...
+      itemList.Add(item);
+      return true;
    }
 
    public void ConsumeItem(string name, int count)
    {
-      for (int i = mConsumableItems.Count - 1; i > -1 && count > 0; i--)
+      for (int i = mConsumables.Count - 1; i > -1 && count > 0; i--)
       {
-         if (mConsumableItems[i].Name == name)
+         if (mConsumables[i].Name == name)
          {
-            if (mConsumableItems[i].Count > count)
+            if (mConsumables[i].Count > count)
             {
-               mConsumableItems[i].Count -= count;
+               mConsumables[i].Count -= count;
                return;
             }
-            count -= mConsumableItems[i].Count;
-            mConsumableItems.RemoveAt(i);
+            count -= mConsumables[i].Count;
+            mConsumables.RemoveAt(i);
          }
       }
    }
@@ -68,7 +72,7 @@ public class ItemInventory
    public int CheckItemCount(string name)
    {
       int count = 0;
-      foreach (Item i in mConsumableItems)
+      foreach (Item i in mConsumables)
       {
          if (i.Name == name)
             count += i.Count;

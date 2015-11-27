@@ -28,23 +28,23 @@ public class PlayerController : MonoBehaviour, ItemCollector
       mRigidBody.velocity = new Vector2(x * VelocityScale, y * VelocityScale);
       if (mAnimator != null)
       {
-         if (x < 0.5f && x > -0.5f && y < 0.5f && y > -0.5f)
+         if (x < 0.01f && x > -0.01f && y < 0.01f && y > -0.01f)
             mAnimator.SetInteger("MovementState", 0);
-         else if (x < -0.5f)
+         else if (x < -0.01f)
             mAnimator.SetInteger("MovementState", 4);
-         else if (x > 0.5f)
+         else if (x > 0.01f)
             mAnimator.SetInteger("MovementState", 3);
-         else if (y < -0.5f)
+         else if (y < -0.01f)
             mAnimator.SetInteger("MovementState", 1);
-         else if (y > 0.5f)
+         else if (y > 0.01f)
             mAnimator.SetInteger("MovementState", 2);
       }
    }
 
-   public bool TryToCollectItem(string itemType, Dictionary<string, string> props)
+   public bool TryToCollectItem(Item item)
    {
       if (mPlayableCharacter == null)
          return false;
-      return mPlayableCharacter.TryToCollectItem(itemType, props);
+      return mPlayableCharacter.TryToCollectItem(item);
    }
 }

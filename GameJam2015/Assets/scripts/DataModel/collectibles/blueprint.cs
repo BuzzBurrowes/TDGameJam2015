@@ -6,11 +6,12 @@ public class blueprint : Item
 {
    public blueprint()
    {
-      Consumable = false;
+      Class = ItemClasses.blueprint;
       Stackable = false;
+      OneOnly = false;
    }
 
-   protected override bool _Add(IDictionary<string, string> props) 
+   protected override bool _Setup(IDictionary<string, string> props) 
    { 
       if (!props.ContainsKey("output"))
       {

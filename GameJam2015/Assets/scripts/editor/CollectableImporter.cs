@@ -4,16 +4,15 @@ using System.Collections.Generic;
 using UnityEditor;
 
 [Tiled2Unity.CustomTiledImporter]
-class CustomImporterAddComponent : Tiled2Unity.ICustomTiledImporter
+class CollectableImporter : Tiled2Unity.ICustomTiledImporter
 {
    public void HandleCustomProperties(UnityEngine.GameObject gameObject,
        IDictionary<string, string> props)
    {
-      // Simply add a component to our GameObject
-      if (props.ContainsKey("collectable"))
+      if (props.ContainsKey("itemtype"))
       {
          // Load the prefab assest and Instantiate it
-         string prefabPath = "Assets/prefabs/collectables/" + props["collectable"] + ".prefab";
+         string prefabPath = "Assets/prefabs/collectables/" + props["itemtype"] + ".prefab";
          UnityEngine.Object spawn =
              UnityEditor.AssetDatabase.LoadAssetAtPath(prefabPath, typeof(GameObject));
          if (spawn != null)
@@ -27,9 +26,7 @@ class CustomImporterAddComponent : Tiled2Unity.ICustomTiledImporter
             spawnInstance.transform.localPosition = Vector3.zero;
 
             CollectableController cc = spawnInstance.GetComponent<CollectableController>();
-            cc.ItemType = props["collectable"];
-            foreach(string key in props.Keys)
-               cc.Props[key] = props[key];
+            cc.SetDescription(props);
          }
          else
          {

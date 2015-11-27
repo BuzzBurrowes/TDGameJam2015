@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="10" height="10" tilewidth="32" tileheight="32" nextobjectid="19">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="10" height="10" tilewidth="32" tileheight="32" nextobjectid="22">
  <tileset firstgid="1" name="Basic" tilewidth="32" tileheight="32" tilecount="48">
   <image source="../tilesets/ground_tiles.png" width="192" height="256"/>
   <tile id="0">
@@ -101,5 +101,10 @@
   </object>
   <object id="17" name="Crate3" gid="38" x="143" y="190" width="32" height="32"/>
   <object id="18" name="Blueprint1" gid="51" x="105" y="255" width="32" height="32"/>
+  <object id="21" name="Spawner1" gid="37" x="62" y="110" width="32" height="32">
+   <properties>
+    <property name="spawner" value="true"/>
+   </properties>
+  </object>
  </objectgroup>
 </map>

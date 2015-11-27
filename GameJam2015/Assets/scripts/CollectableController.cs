@@ -20,7 +20,7 @@ public class CollectableController : MonoBehaviour
 
    void OnTriggerEnter2D(Collider2D collider)
    {
-      ItemCollector collector = collider.gameObject.GetComponent<ItemCollector>();
+      ItemCollector collector = collider.gameObject.GetComponent(typeof(ItemCollector)) as ItemCollector;
       if (collector != null)
       {
          if (collector.TryToCollectItem(ItemType, Props))

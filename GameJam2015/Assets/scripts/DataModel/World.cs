@@ -9,7 +9,7 @@ public class World
    }
 
    static World gWorld = null;
-   static World Instance
+   public static World Instance
    {
       get
       {
@@ -17,5 +17,11 @@ public class World
             gWorld = new World();
          return gWorld;
       }
+   }
+
+   PlayableCharacter mLocalPlayer = new PlayableCharacter();
+   public PlayableCharacter LocalPlayer
+   {
+      get { return mLocalPlayer; }
    }
 }

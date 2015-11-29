@@ -47,16 +47,6 @@ public class Item
       set { mClass = value; }
    }
 
-   /*
-   public Item(string name, int count, bool stackable, ItemClasses itemClass)
-   {
-      mName = name;
-      mCount = count;
-      mStackable = stackable;
-      mClass = itemClass;
-   }
-   */
-
    public Item()
    {
       mName = "[unknown]";

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class ItemInventory
 {
-   public List<Item> mWeapons     = new List<Item>();
+   public List<Item> mEquipment   = new List<Item>();
    public List<Item> mConsumables = new List<Item>();
    public List<Item> mMaterials   = new List<Item>();
    public List<Item> mBlueprints  = new List<Item>();
@@ -17,7 +17,7 @@ public class ItemInventory
          case Item.ItemClasses.consumable: itemList = mConsumables; break;
          case Item.ItemClasses.blueprint:  itemList = mBlueprints;  break;
          case Item.ItemClasses.key:        itemList = mKeyItems;    break;
-         case Item.ItemClasses.weapon:     itemList = mWeapons;     break;
+         case Item.ItemClasses.weapon:     itemList = mEquipment;     break;
          default: throw new ArgumentException("Unrecognized item class!", item.Class.ToString());
       }
 

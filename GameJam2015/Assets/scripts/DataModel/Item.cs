@@ -50,7 +50,7 @@ public class Item
    public Item()
    {
       mName = "[unknown]";
-      mCount = 0;
+      mCount = 1;
       mStackable = false;
       mClass = ItemClasses.unknown;
       mOneOnly = false;
